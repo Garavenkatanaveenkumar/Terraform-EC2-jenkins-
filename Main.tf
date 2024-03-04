@@ -31,9 +31,9 @@ resource "aws_security_group" "Jenkins-sg" {
 
 
 resource "aws_instance" "web" {
-  ami                    = "ami-03f4878755434977f"
-  instance_type          = "t2.medium"
-  key_name               = "mumbai"
+  ami                    = "ami-07d9b9ddc6cd8dd30"
+  instance_type          = "t2.large"
+  key_name               = "docker"
   vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
   user_data              = templatefile("./install_jenkins.sh", {})
 
@@ -41,6 +41,6 @@ resource "aws_instance" "web" {
     Name = "Jenkins-sonar"
   }
   root_block_device {
-    volume_size = 30
+    volume_size = 40
   }
 }
