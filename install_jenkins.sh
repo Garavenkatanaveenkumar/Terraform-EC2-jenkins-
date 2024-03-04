@@ -4,7 +4,7 @@ wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | tee /et
 echo "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list
 #-------java dependency for jenkins------------
 
-sudo apt install java-11-amazon-corretto -y
+sudo apt install java-17-amazon-corretto -y
 
 #------------jenkins install-------------
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
